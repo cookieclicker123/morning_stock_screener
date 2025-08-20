@@ -1,4 +1,4 @@
-.PHONY: help install install-dev test test-cov lint format clean run example
+.PHONY: help install install-dev test test-cov lint format clean run chat example
 
 # Default target
 help:
@@ -24,6 +24,9 @@ help:
 	@echo "  run          - Run the main stock screener application"
 	@echo "  chat         - Run the chat client for testing"
 	@echo "  example      - Run example usage"
+	@echo ""
+	@echo "🔍 Advanced Testing (Use Sparingly - Uses API Credits):"
+	@echo "  python -m src.testing.serper_test_client  # Google Serper comprehensive test"
 	@echo ""
 	@echo "🧹 Maintenance:"
 	@echo "  clean        - Clean build artifacts and cache"
@@ -122,6 +125,8 @@ chat:
 	@echo "💬 Starting chat client for testing..."
 	@echo "🔧 Activating virtual environment (.venv)..."
 	. .venv/bin/activate && python -m src.testing.chat_client
+
+
 
 # Run example usage
 example:

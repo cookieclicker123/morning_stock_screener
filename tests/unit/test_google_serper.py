@@ -346,7 +346,8 @@ class TestGoogleSerperTool:
                 "image_search", 
                 "video_search",
                 "knowledge_graph",
-                "related_questions"
+                "related_questions",
+                "staggered_comprehensive_search"
             ]
             
             assert capabilities == expected_capabilities
@@ -379,7 +380,8 @@ class TestGoogleSerperTool:
                 "num_results",
                 "search_type",
                 "country", 
-                "language"
+                "language",
+                "filter_sites"
             ]
             
             assert optional_params == expected_params
@@ -398,6 +400,24 @@ class TestGoogleSerperTool:
             assert example["description"] == "Perform a web search using Google Serper API"
             assert "query" in example["params"]
             assert "expected_output" in example
+
+    def test_validate_params_filter_sites_boolean(self):
+        """Test that filter_sites parameter accepts boolean values."""
+        with patch('src.tools.google_serper.get_settings') as mock_get_settings:
+            mock_settings = Mock()
+            mock_settings.serper_api_key = "test-api-key"
+            mock_get_settings.return_value = mock_settings
+            
+            tool = GoogleSerperTool()
+            
+            # Valid boolean values
+            assert tool.validate_params({"query": "test", "filter_sites": True})
+            assert tool.validate_params({"query": "test", "filter_sites": False})
+            
+            # Invalid non-boolean values
+            assert not tool.validate_params({"query": "test", "filter_sites": "yes"})
+            assert not tool.validate_params({"query": "test", "filter_sites": 1})
+            assert not tool.validate_params({"query": "test", "filter_sites": None})
 
     @pytest.mark.asyncio
     async def test_rate_limiting(self):

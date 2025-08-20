@@ -5,9 +5,9 @@ import os
 import sys
 
 
-from ..config import get_settings
-from ..llm import OpenAIWrapper
-from ..models.llm import LLMRequest
+from src.config import get_settings
+from src.llm import OpenAIWrapper
+from src.models.llm import LLMRequest
 
 
 async def chat_interface():
