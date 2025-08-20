@@ -21,7 +21,8 @@ help:
 	@echo "  format       - Format code with black and isort"
 	@echo ""
 	@echo "🚀 Running:"
-	@echo "  run          - Run the chat application"
+	@echo "  run          - Run the main stock screener application"
+	@echo "  chat         - Run the chat client for testing"
 	@echo "  example      - Run example usage"
 	@echo ""
 	@echo "🧹 Maintenance:"
@@ -110,11 +111,17 @@ clean:
 	find . -type d -name __pycache__ -exec rm -rf {} +
 	find . -type f -name "*.pyc" -delete
 
-# Run the chat application
+# Run the main stock screener application
 run:
-	@echo "🚀 Starting chat application..."
+	@echo "🚀 Starting main stock screener application..."
 	@echo "🔧 Activating virtual environment (.venv)..."
 	. .venv/bin/activate && python -m src.main
+
+# Run the chat client for testing
+chat:
+	@echo "💬 Starting chat client for testing..."
+	@echo "🔧 Activating virtual environment (.venv)..."
+	. .venv/bin/activate && python -m src.testing.chat_client
 
 # Run example usage
 example:

@@ -35,7 +35,7 @@ The system uses a multi-agent framework:
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone git@github.com:cookieclicker123/morning_stock_screener.git
    cd morning_stock_screener
    ```
 
