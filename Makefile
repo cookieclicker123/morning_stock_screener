@@ -75,12 +75,12 @@ install-dev:
 test:
 	@echo "🧪 Running tests..."
 	@echo "🔧 Activating virtual environment (.venv)..."
-	. .venv/bin/activate && python -m pytest src/tests/ -v
+	. .venv/bin/activate && python -m pytest tests/ -v
 
 # Run tests with coverage
 test-cov:
 	@echo "📊 Running tests with coverage..."
-	. .venv/bin/activate && python -m pytest src/tests/ -v --cov=src --cov-report=html --cov-report=term-missing
+	. .venv/bin/activate && python -m pytest tests/ -v --cov=src --cov-report=html:tests/fixtures/htmlcov --cov-report=term-missing
 
 # Run linting
 lint:
@@ -105,6 +105,8 @@ clean:
 	rm -rf .pytest_cache/
 	rm -rf htmlcov/
 	rm -rf .coverage
+	rm -rf tests/fixtures/.coverage
+	rm -rf tests/fixtures/htmlcov/
 	find . -type d -name __pycache__ -exec rm -rf {} +
 	find . -type f -name "*.pyc" -delete
 

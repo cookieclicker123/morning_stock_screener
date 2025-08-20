@@ -4,10 +4,10 @@ from decimal import Decimal
 
 import pytest
 
-from ..models.email import EmailContent, StockEmail
-from ..models.llm import LLMRequest, LLMResponse
-from ..models.market import MacroeconomicNews, MarketConditions
-from ..models.stock import Stock, StockAnalysis, StockRecommendation
+from src.models.email import EmailContent, StockEmail
+from src.models.llm import LLMRequest, LLMResponse
+from src.models.market import MacroeconomicNews, MarketConditions
+from src.models.stock import Stock, StockAnalysis, StockRecommendation
 
 
 class TestStockModels:

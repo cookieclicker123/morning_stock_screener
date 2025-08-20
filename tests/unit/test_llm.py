@@ -4,8 +4,8 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from ..llm import OpenAIWrapper
-from ..models.llm import LLMRequest
+from src.llm import OpenAIWrapper
+from src.models.llm import LLMRequest
 
 
 class TestOpenAIWrapper:
